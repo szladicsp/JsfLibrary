@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Create book</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    </h:head>
+    <h:body style="background: azure"> 
+        <h1 style="text-align: center" >Könyv adatainak megadása</h1>
+
+        <h:form class="form-horizontal">
+
+            <div class="form-group">
+                <h:outputLabel for="username" class="control-label col-sm-4">A könyv címe:</h:outputLabel>
+
+                <div class="col-sm-4">   
+                    <h:inputText id="title" required="true" value="#{book.title}" class="form-control" 
+                                 requiredMessage="A cím kitöltése kötelezö"><f:validateRequired></f:validateRequired></h:inputText><br></br>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="author" class="control-label col-sm-4"> A könyv szerzoje:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="author" required="true" value="#{book.author}" class="form-control" requiredMessage="A szerzó kitöltése kötelezó"><f:validateRequired></f:validateRequired></h:inputText><br></br>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="pageNumber" class="control-label col-sm-4"> A könyv oldalszáma:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="pageNumber" required="true" value="#{book.pageNumber}" class="form-control" validatorMessage="Adjon meg 10 és 10000 között oldalszámot"><f:validateDoubleRange minimum="10" maximum="10000"></f:validateDoubleRange></h:inputText><br></br>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="prize" class="control-label col-sm-4"> A könyv ára:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="prize" required="true" value="#{book.prize}" class="form-control" validatorMessage="Adjon meg 100 és 10000 között oldalszámot"><f:validateLongRange minimum="100" maximum="100000"></f:validateLongRange></h:inputText><br></br>
+                </div>
+            </div>
+
+           <!-- <div class="form-group">
+                <h:outputLabel for="prize" class="control-label col-sm-4"> A kiadás éve:</h:outputLabel>
+                <div class="col-sm-4">
+                   <h:inputText id="yearOfPublication" required="true" class="form-control" validatorMessage="Adja meg a helyes évszámot" requiredMessage="Az évszám kitöltése kötelezó"><f:convertDateTime pattern="yyyy"/></h:inputText><br></br>
+                value="" 
+                </div>
+            </div>-->
+
+            <div class="form-group">
+                <h:outputLabel for="inStorage" class="control-label col-sm-4"> Raktáron:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:selectBooleanCheckbox id="inStorage" required="true" value="#{book.inStorage}" class=""></h:selectBooleanCheckbox><br></br>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="isbn" class="control-label col-sm-4"> ISBN azonosító:</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="isbn" required="true" value="#{book.isbn}" class="form-control"></h:inputText><br></br>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-12 text-center">
+                <h:commandButton value="Mentés" action="#{book.submit()}" class="btn btn-success btn-lg"></h:commandButton>
+                
+            </div>
+        </h:form>
+
+
+    </h:body>
+</html>
+
