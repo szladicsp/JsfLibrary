@@ -8,7 +8,6 @@ package managedbean;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
 import javax.faces.context.FacesContext;
 
 /**
@@ -111,6 +111,21 @@ public class Book implements Serializable {
     public void setIsbn(int isbn) {
         this.isbn = isbn;
     }
+    public ArrayList getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(ArrayList bookList) {
+        this.bookList = bookList;
+    }
+
+    public Map<String, Object> getSessionMap() {
+        return sessionMap;
+    }
+
+    public void setSessionMap(Map<String, Object> sessionMap) {
+        this.sessionMap = sessionMap;
+    }
 
     //Kapcsolat léátrehozása
     public Connection getConnection() {
@@ -140,6 +155,7 @@ public class Book implements Serializable {
                 book.setInStorage(rs.getBoolean("inStorage"));
                 book.setIsbn(rs.getInt("isbn"));
                 bookList.add(book);
+                
                 
                 
             }
@@ -179,11 +195,13 @@ public class Book implements Serializable {
     
     public String submit() {
         if (this.save()) {
+            System.out.println("submitig lefut a program");
             return "response.xhtml";
         } else {
+            System.out.println("Az index html-t nyitja meg mindig");
             return "index.xhtml";
         }
     }
     
-       
+    
 }

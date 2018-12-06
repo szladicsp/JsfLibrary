@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Könyvtár alkalmazás</title>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -10,7 +11,7 @@
         <style type="text/css">
             body{
                 background: azure;
-                
+
             }
             h1{
                 margin: 2rem;
@@ -19,21 +20,20 @@
                 width: 30%;
                 height: 30%;
                 margin-bottom: 3rem;
-                
+
             }
-                
-            
+
+
         </style>
         <h1>Könyvtár adatbázis</h1>
         <h:graphicImage styleClass="img" value="resources/images/book.jpg"></h:graphicImage><br></br>
         <h:form class="btn-group-vertical">
             <h:commandLink class="btn btn-success btn-lg" value="Könyv hozzáadása" action="create.xhtml"></h:commandLink><br></br>
             <h:commandLink class="btn btn-primary btn-lg" value="Könyv keresése" action="search.xhtml"></h:commandLink><br></br>
-            <h:commandLink class="btn btn-danger btn-lg" value="Könyv törlése" action="delete.xhtml"></h:commandLink><br></br>
-            <h:commandLink class="btn btn-warning btn-lg" value="Könyv adatainak megváltoztatása" action="edit.xhtml"></h:commandLink>
-            
+            <h:commandLink class="btn btn-info btn-lg" value="Könyvek listája" action="booklist.xhtml"></h:commandLink>
         </h:form>
-        
+
+      
     </h:body>
 </html>
 
